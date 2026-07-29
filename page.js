@@ -52,7 +52,7 @@ const differences = [
     },
 ];
 function Logo({ footer = false }) {
-    return (_jsx("a", { className: `logo ${footer ? "logo-footer" : ""}`, href: "#top", "aria-label": "Sagodent", children: _jsx("img", { src: "./logo-white.png", alt: "Sagodent - Dental education center" }) }));
+    return (_jsx("a", { className: `logo ${footer ? "logo-footer" : ""}`, href: "#top", "aria-label": "Sagodent", children: _jsx("img", { src: "./logo-white.png?v=2", alt: "Sagodent - Dental education center" }) }));
 }
 export default function Home() {
     const [menuOpen, setMenuOpen] = useState(false);
