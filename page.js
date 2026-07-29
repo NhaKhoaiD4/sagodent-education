@@ -36,7 +36,7 @@ const differences = [
         number: "01",
         title: "Đào tạo bắt đầu từ những lỗi cơ bản",
         text: "Mỗi học viên không chỉ học “phải làm gì”, mà được huấn luyện để nhận ra vì sao mình làm chưa đúng. Huấn luyện viên quan sát trực tiếp, chỉnh sửa ngay từ cách cầm dụng cụ, tư thế, thao tác đến xử lý tình huống.",
-        image: "./asset-07-upright.jpg",
+        image: "./P1435333.jpg",
     },
     {
         number: "02",
