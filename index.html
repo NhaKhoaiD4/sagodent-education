@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Sagodent — Dental education center" />
     <title>Sagodent — Dental education center</title>
-<link rel="stylesheet" href="./site.css?v=difference-centered-v15" />
+<link rel="stylesheet" href="./site.css?v=contact-grid-v16" />
 <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css" />
   </head>
   <body>
@@ -22,7 +22,7 @@
     <script type="module">
       import React from "react";
       import { createRoot } from "react-dom/client";
-import Home from "./page.js?v=difference-centered-v15";
+import Home from "./page.js?v=contact-grid-v16";
 createRoot(document.getElementById("root")).render(
   React.createElement(Home)
 );
@@ -63,6 +63,45 @@ createRoot(document.getElementById("root")).render(
   addEventListener("scroll", requestTheme, { passive: true });
   addEventListener("resize", requestTheme, { passive: true });
   updateTheme();
+})();
+</script>
+<script>
+(function buildContactGrid(){
+  const socials = document.querySelector(".contact .socials");
+  if (!socials) {
+    requestAnimationFrame(buildContactGrid);
+    return;
+  }
+  const items = [
+    { label:"WHATSAPP", icon:"WA", detail:"0909 245 886", href:"https://wa.me/84909245886" },
+    { label:"ZALO", icon:"Z", detail:"0909 245 886", href:"https://zalo.me/0909245886" },
+    { label:"FACEBOOK", icon:"f", detail:"Kết nối cùng Sagodent", href:"https://www.facebook.com/" },
+    { label:"INSTAGRAM", icon:"◎", detail:"Theo dõi hoạt động đào tạo", href:"https://www.instagram.com/" },
+    {
+      label:"GOOGLE MAPS",
+      icon:"⌖",
+      detail:"305 Hùng Vương, An Đông, Hồ Chí Minh",
+      href:"https://www.google.com/maps/search/?api=1&query=305+Hùng+Vương,+An+Đông,+Hồ+Chí+Minh",
+      map:"https://www.google.com/maps?q=305+H%C3%B9ng+V%C6%B0%C6%A1ng,+An+%C4%90%C3%B4ng,+H%E1%BB%93+Ch%C3%AD+Minh&output=embed"
+    }
+  ];
+  const grid = document.createElement("div");
+  grid.className = "contact-grid";
+  items.forEach(item => {
+    const card = document.createElement("a");
+    card.className = "contact-card" + (item.map ? " contact-card-map" : "");
+    card.href = item.href;
+    card.target = "_blank";
+    card.rel = "noreferrer";
+    card.innerHTML = `
+      ${item.map ? `<iframe src="${item.map}" loading="lazy" title="Google Maps Sagodent"></iframe>` : ""}
+      <span class="contact-card-icon">${item.icon}</span>
+      <span class="contact-card-copy"><strong>${item.label}</strong><small>${item.detail}</small></span>
+      <span class="contact-card-arrow">↗</span>
+    `;
+    grid.appendChild(card);
+  });
+  socials.replaceWith(grid);
 })();
 </script>
 <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
