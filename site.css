@@ -183,12 +183,12 @@ blockquote p{
 }
 
 /* Adaptive navigation contrast across light, blue and photographic sections. */
-.topbar.scrolled.on-dark{
+.topbar.on-dark{
   background:rgba(5,45,72,.86);
   color:#fff;
   box-shadow:0 10px 34px rgba(2,25,42,.2);
   backdrop-filter:blur(18px) saturate(125%);
 }
-.topbar.scrolled.on-dark .logo-white{display:block}
-.topbar.scrolled.on-dark .logo-blue{display:none}
-.topbar.scrolled.on-dark .menu-button{color:#fff}
+.topbar.on-dark .logo-white{display:block}
+.topbar.on-dark .logo-blue{display:none}
+.topbar.on-dark .menu-button{color:#fff}
