@@ -107,3 +107,41 @@ blockquote p{
   blockquote{min-height:620px;padding:90px 7vw}
   blockquote .quote-title{font-size:clamp(34px,8vw,56px)}
 }
+
+/* Connect 01–03 as one continuous Sagodent training story. */
+.difference-list::before{
+  content:"3 YẾU TỐ TẠO NÊN PHƯƠNG PHÁP SAGODENT   ·   01  →  02  →  03";
+  position:sticky;
+  top:100px;
+  z-index:20;
+  display:block;
+  width:100%;
+  padding:14px 5vw 13px;
+  border-bottom:1px solid rgba(255,255,255,.3);
+  background:rgba(4,45,73,.9);
+  color:#fff;
+  font:700 clamp(10px,.72vw,14px)/1 GoogleSans,Gotham,Arial,sans-serif;
+  letter-spacing:.12em;
+  text-align:center;
+  backdrop-filter:blur(12px);
+}
+.difference-row::after{
+  content:"";
+  position:absolute;
+  z-index:3;
+  left:calc(50% - 1px);
+  top:0;
+  width:2px;
+  height:100%;
+  background:linear-gradient(180deg,rgba(255,255,255,.65),rgba(255,255,255,.08));
+  pointer-events:none;
+}
+@media(max-width:600px){
+  .difference-list::before{
+    top:86px;
+    padding:12px 5vw;
+    font-size:9px;
+    letter-spacing:.07em;
+  }
+  .difference-row::after{display:none}
+}
