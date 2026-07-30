@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Sagodent — Dental education center" />
     <title>Sagodent — Dental education center</title>
-<link rel="stylesheet" href="./site.css?v=contact-grid-v16" />
+<link rel="stylesheet" href="./site.css?v=contact-icons-v17" />
 <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css" />
   </head>
   <body>
@@ -22,7 +22,7 @@
     <script type="module">
       import React from "react";
       import { createRoot } from "react-dom/client";
-import Home from "./page.js?v=contact-grid-v16";
+import Home from "./page.js?v=contact-icons-v17";
 createRoot(document.getElementById("root")).render(
   React.createElement(Home)
 );
@@ -73,31 +73,28 @@ createRoot(document.getElementById("root")).render(
     return;
   }
   const items = [
-    { label:"WHATSAPP", icon:"WA", detail:"0909 245 886", href:"https://wa.me/84909245886" },
-    { label:"ZALO", icon:"Z", detail:"0909 245 886", href:"https://zalo.me/0909245886" },
-    { label:"FACEBOOK", icon:"f", detail:"Kết nối cùng Sagodent", href:"https://www.facebook.com/" },
-    { label:"INSTAGRAM", icon:"◎", detail:"Theo dõi hoạt động đào tạo", href:"https://www.instagram.com/" },
+    { label:"WhatsApp", icon:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.7a8 8 0 0 1-11.8 7L4 20l1.3-4.1A8 8 0 1 1 20 11.7Z"/><path d="M8.4 7.6c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5-.1.7l-.7.8c-.2.2-.1.4 0 .6.7 1.3 1.7 2.2 3 2.8.3.1.5.1.7-.1l.9-1.1c.2-.2.4-.3.7-.2l1.8.9c.3.1.4.4.4.6-.1.8-.5 1.6-1.2 2-.6.4-1.5.6-2.4.3-1.2-.3-2.7-1-4.2-2.4-1.3-1.2-2.2-2.6-2.6-3.8-.3-.9-.2-1.9.2-2.9Z"/></svg>`, href:"https://wa.me/84909245886" },
+    { label:"Zalo", icon:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-7l-4.5 3v-3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z"/><path d="M7 8h5l-5 7h5M14 10v5M14 10h2.5a2 2 0 0 1 0 4H14M20 10v5"/></svg>`, href:"https://zalo.me/0909245886" },
+    { label:"Facebook", icon:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-3H14V8.5c0-1 .4-1.5 1.7-1.5H18V4.2c-.7-.1-1.7-.2-2.8-.2C12.4 4 11 5.7 11 8.3V10H8v3h3v8h3Z"/></svg>`, href:"https://www.facebook.com/" },
+    { label:"Instagram", icon:`<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>`, href:"https://www.instagram.com/" },
     {
-      label:"GOOGLE MAPS",
-      icon:"⌖",
-      detail:"305 Hùng Vương, An Đông, Hồ Chí Minh",
-      href:"https://www.google.com/maps/search/?api=1&query=305+Hùng+Vương,+An+Đông,+Hồ+Chí+Minh",
-      map:"https://www.google.com/maps?q=305+H%C3%B9ng+V%C6%B0%C6%A1ng,+An+%C4%90%C3%B4ng,+H%E1%BB%93+Ch%C3%AD+Minh&output=embed"
+      label:"Google Maps",
+      icon:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5.5-8 12-8 12S4 15.5 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>`,
+      href:"https://www.google.com/maps/search/?api=1&query=305+Hùng+Vương,+An+Đông,+Hồ+Chí+Minh"
     }
   ];
   const grid = document.createElement("div");
   grid.className = "contact-grid";
   items.forEach(item => {
     const card = document.createElement("a");
-    card.className = "contact-card" + (item.map ? " contact-card-map" : "");
+    card.className = "contact-card";
     card.href = item.href;
     card.target = "_blank";
     card.rel = "noreferrer";
+    card.setAttribute("aria-label", item.label);
+    card.title = item.label;
     card.innerHTML = `
-      ${item.map ? `<iframe src="${item.map}" loading="lazy" title="Google Maps Sagodent"></iframe>` : ""}
       <span class="contact-card-icon">${item.icon}</span>
-      <span class="contact-card-copy"><strong>${item.label}</strong><small>${item.detail}</small></span>
-      <span class="contact-card-arrow">↗</span>
     `;
     grid.appendChild(card);
   });
