@@ -226,6 +226,40 @@ blockquote.quote-animate-in p{
   .difference-text>span{left:8vw}
 }
 
+/* Let Dr. Diem's portrait rise slightly into the section above. */
+.intro{position:relative;z-index:1}
+.doctor{
+  position:relative;
+  z-index:2;
+  overflow:visible;
+}
+.doctor-copy{
+  position:relative;
+  z-index:2;
+  background:var(--pale);
+}
+.doctor-portrait{
+  z-index:3;
+  overflow:visible;
+}
+.doctor-portrait img{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:calc(100% + clamp(48px,5.2vw,92px));
+  object-fit:cover;
+  object-position:center top;
+}
+@media(max-width:900px){
+  .doctor{overflow:hidden}
+  .doctor-portrait{overflow:hidden}
+  .doctor-portrait img{
+    position:relative;
+    height:100%;
+  }
+}
+
 /* Compact, clearer header action group. */
 .topbar .header-actions{
   gap:clamp(24px,3vw,54px);
