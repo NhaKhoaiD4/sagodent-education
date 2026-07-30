@@ -251,18 +251,18 @@ blockquote p{
     grid-row:1;
   }
   .difference-head>div{
-    grid-column:1;
-    grid-row:1;
+    position:absolute;
+    inset:0 auto 0 0;
+    width:50%;
     align-items:flex-start;
-    align-self:stretch;
-    height:100%;
+    height:auto;
     padding:0 5vw;
     justify-content:center;
   }
   .difference-head h2{
     position:static;
     top:auto;
-    transform:translateY(-4%);
+    transform:none;
   }
   .difference-head:after{
     inset:0 0 0 50%;
