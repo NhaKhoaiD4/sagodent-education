@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Sagodent — Dental education center" />
     <title>Sagodent — Dental education center</title>
-<link rel="stylesheet" href="./site.css?v=continuous-scroll-v9" />
+<link rel="stylesheet" href="./site.css?v=native-tail-v10" />
   </head>
   <body>
     <div id="root"></div>
@@ -21,7 +21,7 @@
     <script type="module">
       import React from "react";
       import { createRoot } from "react-dom/client";
-import Home from "./page.js?v=continuous-scroll-v9";
+import Home from "./page.js?v=native-tail-v10";
 createRoot(document.getElementById("root")).render(
   React.createElement(Home)
 );
@@ -67,53 +67,33 @@ createRoot(document.getElementById("root")).render(
 <script>
 (function addGentleScrollInertia(){
   if (matchMedia("(prefers-reduced-motion: reduce)").matches || navigator.maxTouchPoints > 0) return;
-  let current = scrollY;
-  let target = scrollY;
   let frame = 0;
   let releaseTimer = 0;
   let lastDelta = 0;
-  let wheelActive = false;
-  let internalScroll = false;
+  let velocity = 0;
 
-  const limit = () => Math.max(0, document.documentElement.scrollHeight - innerHeight);
-  const render = () => {
-    const ease = wheelActive ? .34 : .115;
-    current += (target - current) * ease;
-    internalScroll = true;
-    scrollTo(0, current);
-    internalScroll = false;
-    if (Math.abs(target - current) < .22) {
-      current = target;
-      scrollTo(0, current);
+  const glide = () => {
+    scrollBy(0, velocity);
+    velocity *= .84;
+    if (Math.abs(velocity) < .18) {
       frame = 0;
       return;
     }
-    frame = requestAnimationFrame(render);
+    frame = requestAnimationFrame(glide);
   };
 
   addEventListener("wheel", event => {
     if (event.ctrlKey || event.metaKey || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
-    event.preventDefault();
-    current = scrollY;
-    target = Math.max(0, Math.min(limit(), target + event.deltaY));
     lastDelta = event.deltaY;
-    wheelActive = true;
-    if (!frame) frame = requestAnimationFrame(render);
+    if (frame) {
+      cancelAnimationFrame(frame);
+      frame = 0;
+    }
     clearTimeout(releaseTimer);
     releaseTimer = setTimeout(() => {
-      wheelActive = false;
-      const tail = Math.max(-90, Math.min(90, lastDelta * .5));
-      target = Math.max(0, Math.min(limit(), target + tail));
-      if (!frame) frame = requestAnimationFrame(render);
-    }, 54);
-  }, { passive: false });
-
-  addEventListener("scroll", () => {
-    if (!internalScroll && !frame) current = target = scrollY;
-  }, { passive: true });
-
-  addEventListener("resize", () => {
-    target = Math.min(target, limit());
+      velocity = Math.max(-11, Math.min(11, lastDelta * .09));
+      if (!frame) frame = requestAnimationFrame(glide);
+    }, 24);
   }, { passive: true });
 })();
 </script>
