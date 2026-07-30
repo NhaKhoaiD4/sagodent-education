@@ -192,3 +192,11 @@ blockquote p{
 .topbar.on-dark .logo-white{display:block}
 .topbar.on-dark .logo-blue{display:none}
 .topbar.on-dark .menu-button{color:#fff}
+.topbar.on-blue{
+  background:rgba(7,93,152,.94);
+  box-shadow:0 10px 34px rgba(7,65,105,.24);
+}
+.topbar.on-black{
+  background:rgba(5,8,10,.92);
+  box-shadow:0 10px 34px rgba(0,0,0,.32);
+}
