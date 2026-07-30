@@ -65,3 +65,6 @@ footer{min-height:500px;background:var(--blue);color:white;padding:7vw 5vw;displ
 
 /* Match the Illustrator horizontal text axis in the right blue panel. */
 @media(min-width:601px){.difference-head>div{align-items:flex-start;padding-left:6.5vw}.difference-head h2{text-align:left}}
+
+/* Match the Illustrator optical vertical center on desktop. */
+@media(min-width:901px){.difference-head h2{position:relative;top:-3vw}}
