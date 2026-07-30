@@ -283,7 +283,7 @@ blockquote p{
 }
 .contact-card{
   position:relative;
-  min-height:260px;
+  min-height:190px;
   display:grid;
   place-items:center;
   overflow:hidden;
@@ -334,7 +334,7 @@ blockquote p{
 }
 @media(max-width:700px){
   .contact-grid{margin-top:45px}
-  .contact-card{min-height:220px}
+  .contact-card{min-height:180px}
 }
 @media(max-width:480px){
   .contact-grid{grid-template-columns:repeat(5,minmax(190px,1fr))}
