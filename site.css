@@ -226,6 +226,54 @@ blockquote.quote-animate-in p{
   .difference-text>span{left:8vw}
 }
 
+/* Compact, clearer header action group. */
+.topbar .header-actions{
+  gap:clamp(24px,3vw,54px);
+  font-size:clamp(13px,1.05vw,19px);
+  font-weight:400;
+  letter-spacing:.025em;
+}
+.topbar .language,
+.topbar .menu-button{
+  font-weight:400;
+}
+.topbar .language i{
+  display:inline-block;
+  width:auto;
+  height:auto;
+  margin:0 .4em;
+  background:transparent !important;
+  line-height:1;
+}
+.topbar .language i::after{
+  content:"/";
+  display:inline;
+  font-style:normal;
+  color:currentColor;
+}
+.topbar .menu-button{
+  gap:clamp(18px,2.25vw,38px);
+  padding:8px 0;
+}
+.topbar .menu-button span{
+  width:clamp(34px,3.2vw,56px);
+  height:clamp(21px,1.9vw,34px);
+}
+.topbar .menu-button span::before{
+  height:1.5px;
+  box-shadow:0 calc((clamp(21px,1.9vw,34px) - 1.5px)/2) 0 currentColor;
+}
+.topbar .menu-button span::after{height:1.5px}
+@media(max-width:900px){
+  .topbar .header-actions{gap:18px;font-size:13px}
+  .topbar .menu-button{gap:16px}
+}
+@media(max-width:600px){
+  .topbar .header-actions{font-size:10px}
+  .topbar .menu-button{font-size:10px}
+  .topbar .menu-button span{width:30px;height:19px}
+}
+
 /* Header actions matched to the original wide menu reference. */
 .header-actions{
   gap:clamp(34px,4.5vw,88px);
