@@ -200,3 +200,19 @@ blockquote p{
   background:rgba(5,8,10,.92);
   box-shadow:0 10px 34px rgba(0,0,0,.32);
 }
+
+/* Softer glass treatment for every scrolled header theme. */
+.topbar.scrolled{
+  background:rgba(255,255,255,.78);
+  border-bottom:1px solid rgba(113,188,230,.22);
+  backdrop-filter:blur(18px) saturate(130%);
+  -webkit-backdrop-filter:blur(18px) saturate(130%);
+}
+.topbar.on-blue{
+  background:rgba(7,93,152,.72);
+  border-bottom-color:rgba(255,255,255,.2);
+}
+.topbar.on-black{
+  background:rgba(5,8,10,.76);
+  border-bottom-color:rgba(255,255,255,.16);
+}
