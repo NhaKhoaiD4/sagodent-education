@@ -238,6 +238,14 @@ blockquote p{
 
 /* Difference banner: copy on the left, training room on the right. */
 @media(min-width:601px){
+  .difference-head,
+  .difference-list,
+  .difference-row,
+  .difference-row:nth-child(1),
+  .difference-row:nth-child(2),
+  .difference-row:nth-child(3){
+    background:var(--blue);
+  }
   .difference-head img{
     grid-column:2;
     grid-row:1;
@@ -246,10 +254,15 @@ blockquote p{
     grid-column:1;
     grid-row:1;
     align-items:flex-start;
+    align-self:stretch;
+    height:100%;
     padding:0 5vw;
+    justify-content:center;
   }
   .difference-head h2{
-    top:0;
+    position:static;
+    top:auto;
+    transform:translateY(-4%);
   }
   .difference-head:after{
     inset:0 0 0 50%;
