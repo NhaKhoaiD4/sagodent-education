@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Sagodent — Dental education center" />
     <title>Sagodent — Dental education center</title>
-<link rel="stylesheet" href="./site.css?v=adaptive-header-v3" />
+<link rel="stylesheet" href="./site.css?v=adaptive-header-v4" />
   </head>
   <body>
     <div id="root"></div>
@@ -21,7 +21,7 @@
     <script type="module">
       import React from "react";
       import { createRoot } from "react-dom/client";
-import Home from "./page.js?v=adaptive-header-v3";
+import Home from "./page.js?v=adaptive-header-v4";
 createRoot(document.getElementById("root")).render(
   React.createElement(Home)
 );
@@ -33,6 +33,8 @@ createRoot(document.getElementById("root")).render(
     requestAnimationFrame(connectAdaptiveHeader);
     return;
   }
+  const blueSelector = ".difference-head,.difference-row,blockquote,.contact,footer";
+  const blackSelector = ".id4";
   const darkSelector = ".hero,.difference-head,.difference-row,blockquote,.id4,.contact,footer";
   let queued = false;
   const updateTheme = () => {
@@ -43,10 +45,12 @@ createRoot(document.getElementById("root")).render(
     const zone = stack
       .map(element => element.closest("section,article,blockquote,footer"))
       .find(Boolean);
-    header.classList.toggle(
-      "on-dark",
-      window.scrollY > 20 && Boolean(zone && zone.matches(darkSelector))
-    );
+    const awayFromTop = window.scrollY > 20;
+    const isBlue = awayFromTop && Boolean(zone && zone.matches(blueSelector));
+    const isBlack = awayFromTop && Boolean(zone && zone.matches(blackSelector));
+    header.classList.toggle("on-dark", awayFromTop && Boolean(zone && zone.matches(darkSelector)));
+    header.classList.toggle("on-blue", isBlue);
+    header.classList.toggle("on-black", isBlack);
   };
   const requestTheme = () => {
     if (!queued) {
