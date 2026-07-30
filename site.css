@@ -216,3 +216,12 @@ blockquote p{
   background:rgba(5,8,10,.76);
   border-bottom-color:rgba(255,255,255,.16);
 }
+
+/* Keep the first photographic banner legible during elastic/very short scrolling. */
+.topbar.on-dark:not(.on-blue):not(.on-black){
+  background:rgba(3,31,49,.48);
+  color:#fff;
+  border-bottom-color:rgba(255,255,255,.14);
+}
+.topbar.on-dark .header-actions{color:#fff}
+.topbar.on-dark .language i{background:#fff}
