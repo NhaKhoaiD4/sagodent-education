@@ -131,7 +131,17 @@ blockquote p{
 .difference-row:nth-child(3){
   color:#fff;
   border:0;
-  box-shadow:0 -45px 90px rgba(4,45,73,.22);
+  box-shadow:0 -18px 48px rgba(4,45,73,.14);
+  transform:translateZ(0);
+  backface-visibility:hidden;
+}
+.difference-image img{
+  will-change:transform;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+}
+.difference-row:hover .difference-image img{
+  transform:translateZ(0) scale(1.02);
 }
 .difference-row:nth-child(1){background:#095f98}
 .difference-row:nth-child(2){background:#0b679f}

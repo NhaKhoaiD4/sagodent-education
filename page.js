@@ -36,19 +36,19 @@ const differences = [
         number: "01",
         title: "Đào tạo bắt đầu từ những lỗi cơ bản",
         text: "Mỗi học viên không chỉ học “phải làm gì”, mà được huấn luyện để nhận ra vì sao mình làm chưa đúng. Huấn luyện viên quan sát trực tiếp, chỉnh sửa ngay từ cách cầm dụng cụ, tư thế, thao tác đến xử lý tình huống.",
-        image: "./P1435333.jpg",
+        image: "./difference-01.webp",
     },
     {
         number: "02",
         title: "Mô phỏng như một ca lâm sàng thực sự",
         text: "Môi trường đào tạo tái hiện toàn bộ quy trình của một phòng khám hiện đại: chẩn đoán, lập kế hoạch, Cone Beam CT, phòng điều trị, labo và công nghệ nha khoa số.",
-        image: "./asset-08-4160x6240.jpg",
+        image: "./difference-02.webp",
     },
     {
         number: "03",
         title: "Mô hình thực hành được thiết kế riêng",
         text: "Mỗi chương trình có mô hình chuyên biệt, tái hiện đúng những khó khăn trong thực tế để học viên lặp lại thao tác đến khi đạt độ chính xác và ổn định.",
-        image: "./asset-09-6000x6000.jpg",
+        image: "./difference-03.webp",
     },
 ];
 function Logo({ footer = false }) {
