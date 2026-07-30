@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Sagodent — Dental education center" />
     <title>Sagodent — Dental education center</title>
-<link rel="stylesheet" href="./site.css?v=glass-header-v5" />
+<link rel="stylesheet" href="./site.css?v=header-inertia-v6" />
   </head>
   <body>
     <div id="root"></div>
@@ -21,7 +21,7 @@
     <script type="module">
       import React from "react";
       import { createRoot } from "react-dom/client";
-import Home from "./page.js?v=glass-header-v5";
+import Home from "./page.js?v=header-inertia-v6";
 createRoot(document.getElementById("root")).render(
   React.createElement(Home)
 );
@@ -48,7 +48,8 @@ createRoot(document.getElementById("root")).render(
     const awayFromTop = window.scrollY > 20;
     const isBlue = awayFromTop && Boolean(zone && zone.matches(blueSelector));
     const isBlack = awayFromTop && Boolean(zone && zone.matches(blackSelector));
-    header.classList.toggle("on-dark", awayFromTop && Boolean(zone && zone.matches(darkSelector)));
+    const isDark = Boolean(zone && zone.matches(darkSelector));
+    header.classList.toggle("on-dark", isDark);
     header.classList.toggle("on-blue", isBlue);
     header.classList.toggle("on-black", isBlack);
   };
@@ -61,6 +62,48 @@ createRoot(document.getElementById("root")).render(
   addEventListener("scroll", requestTheme, { passive: true });
   addEventListener("resize", requestTheme, { passive: true });
   updateTheme();
+})();
+</script>
+<script>
+(function addGentleScrollInertia(){
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || navigator.maxTouchPoints > 0) return;
+  let target = scrollY;
+  let current = scrollY;
+  let frame = 0;
+  let internal = false;
+
+  const limit = () => Math.max(0, document.documentElement.scrollHeight - innerHeight);
+  const animate = () => {
+    current += (target - current) * .14;
+    if (Math.abs(target - current) < .35) {
+      current = target;
+      internal = true;
+      scrollTo(0, current);
+      internal = false;
+      frame = 0;
+      return;
+    }
+    internal = true;
+    scrollTo(0, current);
+    internal = false;
+    frame = requestAnimationFrame(animate);
+  };
+
+  addEventListener("wheel", event => {
+    if (event.ctrlKey || event.metaKey || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+    event.preventDefault();
+    target = Math.max(0, Math.min(limit(), target + event.deltaY));
+    current = scrollY;
+    if (!frame) frame = requestAnimationFrame(animate);
+  }, { passive: false });
+
+  addEventListener("scroll", () => {
+    if (!internal && !frame) target = current = scrollY;
+  }, { passive: true });
+
+  addEventListener("resize", () => {
+    target = Math.min(target, limit());
+  }, { passive: true });
 })();
 </script>
 </body>
