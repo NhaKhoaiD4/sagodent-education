@@ -373,3 +373,75 @@ blockquote.quote-animate-in p{
 @media(max-width:480px){
   .contact-grid{grid-template-columns:repeat(5,minmax(190px,1fr))}
 }
+
+/* Footer rebuilt to match the wide Illustrator composition. */
+footer{
+  min-height:0;
+  aspect-ratio:1920/850;
+  padding:4.5vw 5vw 5vw;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-rows:auto 1fr;
+  column-gap:5vw;
+  row-gap:3.5vw;
+  align-content:start;
+}
+footer .logo-footer{
+  grid-column:1/-1;
+  align-self:start;
+  position:relative;
+  z-index:2;
+}
+footer .logo-footer img{
+  width:clamp(190px,14vw,280px);
+  max-width:none;
+  height:auto;
+}
+footer>div:not(.footer-mark){
+  position:relative;
+  z-index:2;
+}
+footer small{
+  display:block;
+  font-size:clamp(12px,1.05vw,20px);
+  font-weight:300;
+  letter-spacing:.02em;
+  opacity:1;
+}
+footer p{
+  margin-top:1.5vw;
+  font-size:clamp(15px,1.25vw,24px);
+  font-weight:300;
+  line-height:1.45;
+}
+footer .footer-mark{
+  position:absolute;
+  z-index:1;
+  right:-2vw;
+  bottom:-4vw;
+  width:50vw;
+  height:18.5vw;
+  background:url("./logo-white.png?v=2") center top/100% auto no-repeat;
+  opacity:.11;
+  font-size:0;
+  pointer-events:none;
+}
+@media(max-width:900px){
+  footer{
+    aspect-ratio:auto;
+    grid-template-columns:1fr 1fr;
+    padding:70px 7vw 100px;
+    row-gap:55px;
+  }
+  footer .logo-footer{grid-column:1/-1}
+  footer p{margin-top:18px}
+  footer .footer-mark{width:70vw;height:26vw}
+}
+@media(max-width:600px){
+  footer{
+    grid-template-columns:1fr;
+    padding-bottom:120px;
+  }
+  footer .logo-footer{grid-column:auto}
+  footer .footer-mark{width:105vw;height:39vw;right:-26vw}
+}
