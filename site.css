@@ -142,6 +142,67 @@ blockquote.quote-animate-in p{
   blockquote .quote-title{font-size:clamp(34px,8vw,56px)}
 }
 
+/* Menu drawer uses the same adaptive glass language as the fixed header. */
+.menu-panel{
+  background:rgba(255,255,255,.76);
+  color:var(--blue);
+  border-left:1px solid rgba(113,188,230,.24);
+  box-shadow:-24px 0 60px rgba(2,45,72,.12);
+  backdrop-filter:blur(22px) saturate(130%);
+  -webkit-backdrop-filter:blur(22px) saturate(130%);
+  opacity:0;
+  transition:
+    transform .68s cubic-bezier(.22,1,.36,1),
+    opacity .38s ease,
+    background-color .35s ease,
+    color .35s ease;
+}
+.menu-panel.open{opacity:1}
+.menu-panel a{
+  color:inherit;
+  border-bottom-color:color-mix(in srgb,currentColor 22%,transparent);
+  opacity:0;
+  transform:translateX(26px);
+  transition:
+    opacity .42s ease,
+    transform .58s cubic-bezier(.22,1,.36,1),
+    background-color .25s ease,
+    padding-left .25s ease;
+}
+.menu-panel.open a{opacity:1;transform:none}
+.menu-panel.open a:nth-child(1){transition-delay:.08s}
+.menu-panel.open a:nth-child(2){transition-delay:.12s}
+.menu-panel.open a:nth-child(3){transition-delay:.16s}
+.menu-panel.open a:nth-child(4){transition-delay:.20s}
+.menu-panel.open a:nth-child(5){transition-delay:.24s}
+.menu-panel a:hover{
+  padding-left:12px;
+  background:color-mix(in srgb,currentColor 7%,transparent);
+}
+.menu-panel small{color:var(--sky)}
+main:has(.topbar.on-dark) .menu-panel{
+  background:rgba(3,31,49,.62);
+  color:#fff;
+  border-left-color:rgba(255,255,255,.15);
+  box-shadow:-24px 0 60px rgba(0,0,0,.18);
+}
+main:has(.topbar.on-blue) .menu-panel{background:rgba(7,93,152,.72)}
+main:has(.topbar.on-black) .menu-panel{background:rgba(5,8,10,.76)}
+main:has(.menu-panel.open) .menu-button span::before{
+  top:50%;
+  box-shadow:none;
+  transform:translateY(-50%) rotate(45deg);
+}
+main:has(.menu-panel.open) .menu-button span::after{
+  top:50%;
+  bottom:auto;
+  transform:translateY(-50%) rotate(-45deg);
+}
+.menu-button span::before,
+.menu-button span::after{
+  transition:top .3s ease,bottom .3s ease,transform .35s ease,box-shadow .25s ease;
+}
+
 /* One continuous story: three differences, one Sagodent method. */
 .difference-list{
   background:#095f98;
