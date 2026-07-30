@@ -78,7 +78,7 @@ blockquote{
   justify-content:center;
   background:
     linear-gradient(rgba(5,45,72,.82),rgba(5,45,72,.82)),
-    url("./quote-background.png") center/cover no-repeat;
+    url("./quote-background.webp?v=1") center/cover no-repeat;
   font-family:GoogleSans,Gotham,Arial,sans-serif;
   font-weight:700;
 }
