@@ -242,6 +242,37 @@ blockquote p{
   .menu-panel{padding-top:92px}
 }
 
+/* Pull the contact hub and footer into one compact visual group. */
+.contact{
+  padding:5vw 5vw 1.5vw;
+}
+.contact-grid{
+  margin-top:3vw;
+}
+.contact-card{
+  min-height:160px;
+}
+footer{
+  min-height:0;
+  aspect-ratio:auto;
+  padding:2.25vw 5vw 4vw;
+  row-gap:2vw;
+}
+footer .logo-footer img{
+  width:clamp(150px,11vw,220px);
+}
+footer p{
+  margin-top:1vw;
+}
+@media(max-width:900px){
+  .contact{padding:60px 7vw 24px}
+  .contact-grid{margin-top:36px}
+  footer{
+    padding:32px 7vw 80px;
+    row-gap:36px;
+  }
+}
+
 /* Menu drawer uses the same adaptive glass language as the fixed header. */
 .menu-panel{
   background:rgba(255,255,255,.76);
