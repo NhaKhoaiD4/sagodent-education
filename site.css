@@ -785,3 +785,34 @@ footer .footer-mark{
   footer .logo-footer{grid-column:auto}
   footer .footer-mark{width:105vw;height:39vw;right:-26vw}
 }
+
+/* Final compact footer override: keep the contact hub and details as one group. */
+.contact{
+  padding:5vw 5vw 1.5vw;
+}
+.contact-grid{
+  margin-top:3vw;
+}
+.contact-card{
+  min-height:160px;
+}
+footer{
+  min-height:0;
+  aspect-ratio:auto;
+  padding:2.25vw 5vw 4vw;
+  row-gap:2vw;
+}
+footer .logo-footer img{
+  width:clamp(150px,11vw,220px);
+}
+footer p{
+  margin-top:1vw;
+}
+@media(max-width:900px){
+  .contact{padding:60px 7vw 24px}
+  .contact-grid{margin-top:36px}
+  footer{
+    padding:32px 7vw 80px;
+    row-gap:36px;
+  }
+}
