@@ -199,6 +199,49 @@ blockquote p{
   transition-delay:.24s;
 }
 
+/* Slimmer persistent navigation: preserve the glass treatment while freeing viewport space. */
+.topbar{
+  height:76px;
+  padding:8px 5vw;
+}
+.topbar .logo img{
+  width:102px;
+  height:58px;
+}
+.topbar .header-actions{
+  gap:clamp(20px,2.25vw,38px);
+  font-size:clamp(12px,.9vw,16px);
+}
+.topbar .menu-button{
+  gap:clamp(14px,1.65vw,28px);
+  padding:5px 0;
+}
+.topbar .menu-button span{
+  width:clamp(30px,2.5vw,44px);
+  height:clamp(18px,1.5vw,26px);
+}
+.topbar .menu-button span::before{
+  box-shadow:0 calc((clamp(18px,1.5vw,26px) - 1.5px)/2) 0 currentColor;
+}
+.menu-panel{
+  padding-top:108px;
+}
+.difference-row{
+  top:76px;
+}
+@media(max-width:900px){
+  .topbar{
+    height:68px;
+    padding-block:5px;
+  }
+  .topbar .logo img{
+    width:90px;
+    height:54px;
+  }
+  .difference-row{top:68px}
+  .menu-panel{padding-top:92px}
+}
+
 /* Menu drawer uses the same adaptive glass language as the fixed header. */
 .menu-panel{
   background:rgba(255,255,255,.76);
